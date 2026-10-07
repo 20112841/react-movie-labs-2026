@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "../components/movieList";
 import Grid from "@mui/material/Grid";
-import Header from '../components/headerMovieList';
+import Header from "../components/headerMovieList";
 import FilterCard from "../components/filterMoviesCard";
 
 const HomePage = () => {
@@ -14,9 +14,7 @@ const HomePage = () => {
       `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
     )
       .then((res) => res.json())
-      .then((json) => {
-        return json.results;
-      })
+      .then((json) => json.results)
       .then((movies) => {
         setMovies(movies);
       });

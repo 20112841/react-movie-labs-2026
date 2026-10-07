@@ -26,9 +26,11 @@ export default function FilterMoviesCard(props) {
         import.meta.env.VITE_TMDB_KEY
     )
       .then(res => res.json())
-      .then(json => json.genres)
+      .then(json => {
+        return json.genres;
+      })
       .then(apiGenres => {
-        setGenres([{ id: '0', name: "All" }, ...apiGenres]);
+        setGenres([genres[0], ...apiGenres]);
       });
   }, []);
 
